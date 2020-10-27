@@ -17,6 +17,9 @@ EnemyManager::~EnemyManager()
 		Base* ptr = *itr;
 		delete ptr;
 		ptr = nullptr;
+
+		delete *itr;
+		*itr = nullptr;
 	}
 	// m_Enemiesにはnullptrが入ったBase*の配列が入っている
 	m_Enemies.clear();
@@ -28,12 +31,14 @@ class Base* EnemyManager::CreateEnemy(int enemy_type)
 	for (itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
 		// 可変長配列に空きがあればそこに作る
-		Base* ptr = *itr;
-		if (ptr == nullptr)
+		
+
+		if (*itr == nullptr)
 		{
-			ptr = new Enemy();
-			return ptr;
+			*itr = new Enemy();
+			return *itr;
 		}
+
 	}
 
 	// 空きがないので、新規に作ってpush_back
@@ -52,11 +57,11 @@ bool EnemyManager::DestoryEnemy(class Base* ptr)
 	std::vector<Base*>::iterator itr;
 	for (itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
-		Base* tmp = *itr;
-		if (tmp == ptr)
+
+		if (*itr == ptr)
 		{
-			delete tmp;
-			tmp = nullptr;
+			delete *itr;
+			*itr = nullptr;
 			return true;
 		}
 	}
@@ -69,9 +74,9 @@ void EnemyManager::Exec()
 	std::vector<Base*>::iterator itr;
 	for (itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
-		Base* ptr = *itr;
-		if (ptr != nullptr)
+		if (*itr != nullptr)
 		{
+			Base* ptr = *itr;
 			ptr->Exec();
 		}
 	}
