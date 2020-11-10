@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{448b56ea-0a4d-4762-be23-3185f11509d4}</ProjectGuid>
-    <RootNamespace>Practice0501ClassRefarence</RootNamespace>
+    <ProjectGuid>{f2dc5861-a1f8-47ad-bf4f-6ac3d37cddb3}</ProjectGuid>
+    <RootNamespace>StaticClassMenber</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CharacterBase.cpp" />
-    <ClCompile Include="Practice05_01_ClassRefarence.cpp" />
+    <ClCompile Include="Num.cpp" />
+    <ClCompile Include="StaticClassMenber.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CharacterBase.h" />
+    <ClInclude Include="Num.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
